@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./imagem/calculator-fill.svg" type="image/x-icon">
+    <link rel="stylesheet" href="estilo.css">
+    <title>InforMEI</title>
+    
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main >        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            
+            <div class="container-fluid">
+              <a class="navbar-brand" href="index.html"><img  src="l2.png" alt="logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                  </li>        
+                  <li class="nav-item">
+                      <a class="nav-link" href="fale-conosco.html">Fale Conosco</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="quem-somos.html">Quem Somos?</a>
+                    </li>
+          
+          
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Simuladores Financeiros
+                      </a>
+                      <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item nav-link" href="calculadora.html">Verificação de Enquadramento no MEI</a></li>
+                        <li><a class="dropdown-item nav-link" href="fluxo-caixa.html">Fluxo de Caixa</a></li>              
+                      </ul>
+                    </li> 
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+          <div class="container texto bg-light p-3 my-3 rounded shadow-sm">
+            <h1>Sistema de Verificação de Enquadramento no MEI</h1>
+            <p>Nosso sistema foi desenvolvido para ajudar você, empreendedor, a verificar se o seu faturamento atual se enquadra nos critérios estabelecidos pelo MEI (Microempreendedor Individual). O MEI é um regime tributário simplificado que oferece benefícios fiscais e facilidades para pequenos empresários, mas requer que o faturamento anual esteja dentro de limites específicos.</p>
+
+            <h2>Como Funciona:</h2>
+
+            <ol>
+                <li><strong>Faturamento Acumulado:</strong> Comece inserindo o valor acumulado do faturamento da sua empresa até o momento. Este é o montante total que você ganhou com as suas atividades empreendedoras até agora.</li>
+                <li><strong>Média de Faturamento Mensal:</strong> Em seguida, informe a média de faturamento mensal que você espera ter pelo resto do ano. Isso pode incluir projeções com base nos meses restantes do ano.</li> 
+                <li><strong>Cálculo Automático:</strong> Clique no botão "Calcular" e nosso sistema fará os cálculos automaticamente. Ele considerará o faturamento acumulado até agora e a média mensal para estimar o faturamento anual. Em seguida, comparará esse valor com o limite anual estabelecido pelo MEI.</li>
+            </ol>
+            <h2>Lembre-se:</h2>
+            <p>Se você exceder o limite do MEI, é importante buscar orientação contábil para escolher a melhor forma de tributação para a sua empresa.</p>
+            <p>Nosso sistema está aqui para simplificar a sua vida e ajudá-lo a tomar decisões informadas sobre a sua empresa. Estamos comprometidos em oferecer uma ferramenta fácil de usar que o auxilie no processo de planejamento financeiro e tributário.</p>
+            <p>Lembre-se de que este sistema é uma ferramenta informativa e não substitui a consulta a um contador ou profissional de finanças para obter orientações específicas para o seu caso. Estamos felizes em ajudá-lo a entender os conceitos básicos e a tomar decisões informadas sobre o seu negócio.</p>
+          </div>
+         
+          <div class="container texto bg-light p-3 my-3 rounded shadow-sm">
+            <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Faturamento acumulado:</label>
+                  <input type="number" class="form-control" id="faturamentoAcumulado" aria-describedby="emailHelp">                  
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Média de faturamento mensal:</label>
+                  <input type="number" class="form-control" id="mediaFaturamento">
+                </div>               
+                <button type="button" class="btn btn-primary" id="calc">Calcular</button>
+              </form>
+              
+        </div>
+            <div class="container texto bg-light p-3 my-3 rounded shadow-sm" style="display: none;" id="divres">
+                <h2>Resultado:</h2>
+                <p id="res"></p>
+            </div>
+       
+
+
+    </main>
+    <footer class="bg-footer">
+        <div class="container"><img class="d-flex m-auto pt-3" src="./imagem/logof.png" alt="logo"></div>
+        <div class="d-flex justify-content-center">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="p-2"><img  src="./imagem/facebook.svg" alt="facebook"></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="p-2"><img src="./imagem/instagram.svg" alt="Instagram"></a>
+        </div>
+    </footer>
+    
+
+    
+    <script>
+        document.getElementById("calc").addEventListener("click", calcular);
+        function calcular(){
+
+            var faturamentoAcumulado = parseFloat(document.getElementById("faturamentoAcumulado").value);
+            var mediaFaturamento = parseFloat(document.getElementById("mediaFaturamento").value);
+            var resultado = document.getElementById("res");
+            var texto = "";
+
+            const dataAtual = new Date();
+            const mesAtual = dataAtual.getMonth();
+            const mesesRestantes = 11 - mesAtual;
+            const limiteAnualMEI = 81840.00;
+
+            var total = faturamentoAcumulado + mediaFaturamento * mesesRestantes;
+
+            if (total <= limiteAnualMEI) {
+                texto = 'Seu faturamento se encaixa no MEI com o valor de R$ ' + total.toFixed(2) + '. Valor menor que o limite estabelecido pelo MEI de R$ 81,840.00';
+            } else {
+                texto = 'Seu faturamento não se encaixa no MEI, pois a projeção de faturamento para este ano é de R$ ' + total.toFixed(2) + '. Valor maior que o limite estabelecido pelo MEI de R$ 81,840.00';
+            }
+            resultado.innerHTML = texto;
+            document.getElementById("divres").style.display = "block";            
+
+        }
+      </script>
+    <!--Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

@@ -122,7 +122,7 @@
             } else if(total > limiteAnualMEI & total<limiteAnualMEI+limiteAnualMEI*0.2){
                 texto = 'Seu faturamento não se encaixa no MEI, pois a projeção de faturamento para este ano é de R$ ' + total.toFixed(2) + '. Valor maior que o limite estabelecido pelo MEI de R$ 81000,00. Portanto você sairá da categoria de MEI e precisará emitir uma nova guia DAS para compensar o valor excedente.';
             }else{
-              texto='Seu faturamento não se encaixa no MEIpois a projeção de faturamento para este ano é de R$ ' + total.toFixed(2) + '. Valor maior que o limite estabelecido pelo MEI de R$ 81000,00. Portanto você será excluído do MEI automaticamente e precisará pagar uma cobrança retroativa de imposto do valor faturado no ano, além de juros e multa.'
+              texto='Seu faturamento não se encaixa no MEI, pois a projeção de faturamento para este ano é de R$ ' + total.toFixed(2) + '. Valor maior que o limite estabelecido pelo MEI de R$ 81000,00. Portanto você será excluído do MEI automaticamente e precisará pagar uma cobrança retroativa de imposto do valor faturado no ano, além de juros e multa.'
             }
             resultado.innerHTML = texto;
             document.getElementById("divres").style.display = "block";            

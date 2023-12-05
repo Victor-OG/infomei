@@ -77,9 +77,72 @@
                       <label for="message" class="form-label">Mensagem:</label>
                       <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
                   </div>
+
+
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Li e aceito os <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">termos de uso.</a>
+                    </label>
+                  </div>
+                  <br>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-scrollable">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Termos de Uso</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Estes Termos de Uso regem o uso do site INFOMEI, operado por nós da INFOMEI. Ao acessar ou utilizar o Site, você concorda com estes Termos, que constituem um contrato legal entre você e a Nossa Empresa. Leia atentamente estes Termos antes de utilizar o Site.</p>
+                          <h3>1. Informações de Contato</h3>
+                          <p>O Site coleta informações de contato, como nome, endereço de e-mail e número de telefone, apenas quando você escolhe fornecê-las voluntariamente por meio dos formulários ou métodos de contato disponíveis no Site. O objetivo principal da coleta dessas informações é facilitar a comunicação entre você e a Nossa Empresa.</p>
+                          <h3>2. Uso das Informações de Contato</h3>
+                          <p>As informações de contato que você fornece serão usadas exclusivamente para os fins específicos indicados no momento da coleta. Nós não compartilharemos, venderemos ou divulgaremos suas informações de contato a terceiros sem o seu consentimento expresso, a menos que seja exigido por lei.</p>
+                          <h3>3. Cookies e Rastreamento</h3>
+                          <p>O Site não utiliza cookies nem realiza qualquer forma de rastreamento de usuários para coletar informações pessoais. Valorizamos a privacidade dos nossos visitantes e respeitamos a sua escolha de não serem rastreados enquanto navegam em nosso Site.</p>
+                          <h3>4. Segurança das Informações</h3>
+                          <p>Nós tomamos medidas razoáveis para proteger as informações de contato que você nos fornece contra perda, acesso não autorizado, divulgação, alteração ou destruição. No entanto, nenhuma transmissão de dados pela internet é completamente segura, e não podemos garantir a segurança absoluta das informações transmitidas através do Site.</p>
+                          <h3>5. Links para Terceiros</h3>
+                          <p>O Site pode conter links para sites de terceiros. Esses links são fornecidos apenas para sua conveniência, e não endossamos nem temos controle sobre o conteúdo ou as práticas de privacidade desses sites. Recomendamos que você revise as políticas de privacidade dos sites de terceiros antes de fornecer qualquer informação pessoal.</p>
+                          <h3>6. Alterações nos Termos</h3>
+                          <p>Reservamos o direito de modificar estes Termos a qualquer momento, e tais alterações entrarão em vigor imediatamente após a sua publicação no Site. É sua responsabilidade verificar periodicamente os Termos para estar ciente de quaisquer atualizações. O uso contínuo do Site após a publicação das alterações constituirá a sua aceitação dessas alterações.</p>
+                          <h3>7. Contato</h3>
+                          <p>Se você tiver dúvidas, preocupações ou comentários sobre estes Termos ou a forma como suas informações de contato são tratadas, entre em contato conosco através dos meios de contato disponíveis no Site.</p>
+                          <p>Ao utilizar o Site, você concorda com estes Termos de Uso. Se você não concorda com esses Termos, por favor, não utilize o Site. Agradecemos por visitar o nosso Site e confiar-nos suas informações de contato.</p>
+                          <p>Última atualização: 21/10/2023</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>              
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
       
-                  <button type="submit" class="btn btn-primary">Enviar Email</button>
+                  <button type="submit" class="btn btn-primary" id="botao" disabled>Enviar Email</button>
               </form>
+
+
+              <script>
+                // Declaração do botão
+                const button = document.querySelector("#botao");
+        
+                // Declaração da caixa de seleção de aceitação dos termos de contato
+                const checkbox = document.querySelector(".form-check-input");
+        
+                // Evento de clique na caixa de seleção
+                checkbox.addEventListener("click", () => {
+                // Verifica se a caixa de seleção está marcada
+                if (checkbox.checked) {
+                    // Habilita o botão
+                    button.disabled = false;
+                } else {
+                    // Desabilita o botão
+                    button.disabled = true;
+                }
+                });
+              </script>
 
               <div class="col-sm-6 col-12 mt-5 mt-sm-0">
                 <p>Você também pode nos enviar um e-mail diretamente para infomei_fatec@gmail.com. Estamos prontos para responder às suas perguntas e fornecer informações úteis.</p>
